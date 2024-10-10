@@ -14,7 +14,7 @@ echo "Preparing $1..."
 msg="# managed by release.sh"
 
 # update the changelog
-git-cliff --config cliff.toml --tag "$1" > CHANGELOG.md
+git-cliff --config .cliff/default.toml --tag "$1" > CHANGELOG.md
 git add -A && git commit -m "chore(release): prepare for $1"
 git show
 
@@ -27,7 +27,7 @@ export GIT_CLIFF_TEMPLATE="\
 	{% endfor %}
 	{% endfor %}"
 
-changelog=$(git-cliff --config detailed.toml --unreleased --strip all)
+changelog=$(git-cliff --config .cliff/detailed.toml --unreleased --strip all)
 
 git tag -s -a "$1" -m "Release $1" -m "$changelog"
 git tag -v "$1"
