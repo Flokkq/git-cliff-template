@@ -6,8 +6,7 @@ Template repo for using [git-cliff](https://github.com/orhun/git-cliff)
 
 Before you begin, ensure that you have the following tools installed:
 
-- **gpg**: For signing commits and tags.
-- **git-cliff**: For generating changelogs based on commit messages.
+- **direnv** and **direnv-nix**): To automatically enter the development-environment
 - **nix**: Each assignment comes with a flake.nix (easily install dependencies)
 
 ### Installing Dependencies
@@ -15,10 +14,8 @@ Before you begin, ensure that you have the following tools installed:
 You can install all necessary tools using Nix by running:
 
 ```bash
-nix develop .
+direnv allow
 ```
-
-This command will set up the development environment with `gpg` and `git-cliff` installed, as specified in the `flake.nix` file.
 
 ## Commit Message Guidelines
 
@@ -52,8 +49,8 @@ To maintain a consistent and meaningful commit history, adhere to the following 
 Releasing a new assignment version is straightforward. Follow these steps to create a new release:
 
 ```bash
-    ./release.sh vx.y.z-assignmentName
-    git push && git push --tags
+./release.sh vx.y.z
+git push && git push --tags
 ```
 
 If you are encountering any issues feel free to look at the [git-cliff docs](https://github.com/orhun/git-cliff.git)
