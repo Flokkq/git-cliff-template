@@ -21,6 +21,7 @@
           nativeBuildInputs = with pkgs; [
             git-cliff
             gnupg
+            pre-commit
           ];
         };
       }
