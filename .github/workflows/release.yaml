@@ -42,4 +42,4 @@ jobs:
           body: ${{ steps.git-cliff.outputs.content }}
           draft: false
           prerelease: false
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
